@@ -2,6 +2,7 @@
 
 
 import ArticleCard from '@/components/ArticleCard'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 const ArticlePage = () => {
@@ -21,12 +22,12 @@ const ArticlePage = () => {
     // })
 
     // récupérer la liste des articles AVEC hooks
-    const [articles, setArticles] = useState([])
+    const [articles, setArticles] = useState<ArticleWithTagsAndComments[]>([])
 
     useEffect(() => {
         const fetchArticles = async () => {
             const response = await fetch('api/article')
-            const data = await response.json()
+            const data: ArticleWithTagsAndComments[] = await response.json()
             setArticles(data)
         }
 
@@ -39,8 +40,10 @@ const ArticlePage = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {/* Liste des articles */}
-                {articles.map((article: any) => (
-                   <ArticleCard key={article.id} article={ article }/>
+                {articles.map((article) => (
+                    <Link key={article.id} href={`/article/${article.id}`}>
+                        <ArticleCard key={article.id} article={ article }/>
+                    </Link>
                 ))}
             </div>
         </>
