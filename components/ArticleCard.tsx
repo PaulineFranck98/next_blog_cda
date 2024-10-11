@@ -9,6 +9,8 @@ interface ArticleCardProps {
 
 
 const ArticleCard:React.FC<ArticleCardProps> = ( { article }) => {
+
+
   return (
         <div className='group border border-slate-500 p-6 rounded-md hover:bg-slate-700 cursor-pointer hover:-translate-y-1 duration-300' key={ article.id }>
                             

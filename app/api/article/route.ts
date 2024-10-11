@@ -25,3 +25,37 @@ export async function GET () {
         return new NextResponse("Internal Error", { status: 500})
     }
 }
+
+
+// export async function DELETE(req: NextRequest)
+// {
+//      // extract the articleId from the query parameters
+//     const { searchParams } = new URL(req.url);
+//     const articleId = searchParams.get('articleId');
+
+//     if(!articleId){
+//         return NextResponse.json({ message: 'Article ID is required' }, { status : 400 });
+//     }
+
+//     try{
+//         // supprimer un article spécifique
+//         const deletedArticle = await db.article.delete({
+//             where : {
+//                 id: articleId
+//             },
+//         });
+
+//         if(!deletedArticle) {
+//             return NextResponse.json({ message: "Article not found" }, { status: 400 })
+//         }
+//         // Retourne une réponse au format JSON
+//         return NextResponse.json(
+//             { message : "Article deleted successfully", deletedArticle},
+//             { status : 200 }
+//         )
+
+//     } catch (error) {
+//         console.log("[DELETED ARTICLE]", error)
+//         return new NextResponse("Internal Error", { status: 500})
+//     }
+// }

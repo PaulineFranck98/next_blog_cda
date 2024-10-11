@@ -34,6 +34,20 @@ const ArticlePage = () => {
         fetchArticles()
     }, [])
 
+     
+    // const handleDelete = async (articleId : string) => {
+
+    //     try{
+    //        await fetch(`/api/article?articleId=${articleId}`, {
+    //         method: 'DELETE',
+    //     });
+    //     setArticles((prev) => prev.filter((article) => article.id !== articleId ))
+    //     } catch(error) {
+    //         console.error('Error deleting article',  error)
+    //     }
+
+    //   }
+
     return (
         <>
             <h1 className='text-3xl mb-3 font-bold'>Blog</h1> 
@@ -42,7 +56,7 @@ const ArticlePage = () => {
                 {/* Liste des articles */}
                 {articles.map((article) => (
                     <Link key={article.id} href={`/article/${article.id}`}>
-                        <ArticleCard key={article.id} article={ article }/>
+                        <ArticleCard article={ article }/>
                     </Link>
                 ))}
             </div>
