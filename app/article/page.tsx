@@ -7,21 +7,6 @@ import React, { useEffect, useState } from 'react'
 
 const ArticlePage = () => {
 
-    // récupérer la liste des articles SANS hooks
-    // const articles = await db.article.findMany({
-    //     orderBy: {
-    //         createdAt: 'desc',
-    //     },
-    //     include: {
-    //         tags: {
-    //             include: {
-    //                 tag: true
-    //             }
-    //         }
-    //     }
-    // })
-
-    // récupérer la liste des articles AVEC hooks
     const [articles, setArticles] = useState<ArticleWithTagsAndComments[]>([])
 
     useEffect(() => {
@@ -34,19 +19,6 @@ const ArticlePage = () => {
         fetchArticles()
     }, [])
 
-     
-    // const handleDelete = async (articleId : string) => {
-
-    //     try{
-    //        await fetch(`/api/article?articleId=${articleId}`, {
-    //         method: 'DELETE',
-    //     });
-    //     setArticles((prev) => prev.filter((article) => article.id !== articleId ))
-    //     } catch(error) {
-    //         console.error('Error deleting article',  error)
-    //     }
-
-    //   }
 
     return (
         <>
